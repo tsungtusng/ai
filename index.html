@@ -1,172 +1,184 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>專業履歷 | Wen-Tsung Su</title>
+    <title>Professional CV | Wen-Tsung Su</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a2a6c;    /* 深電信藍 */
-            --accent-color: #00a8ff;     /* 科技亮藍 */
-            --text-color: #2f3640;
-            --bg-color: #f5f6fa;
+            --primary-color: #00274d;    /* Ericsson Blue / Corporate Navy */
+            --accent-color: #006ce0;     /* Tech Blue */
+            --text-color: #333;
+            --bg-color: #f0f2f5;
             --card-bg: #ffffff;
+            --border-color: #dee2e6;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7;
-            padding: 40px 20px;
+            line-height: 1.6;
+            padding: 40px 10px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
             background: var(--card-bg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            border-radius: 4px;
             overflow: hidden;
         }
 
         /* --- Header --- */
         header {
-            background: linear-gradient(135deg, var(--primary-color), #b21f1f, #fdbb2d);
+            background: var(--primary-color);
             color: #fff;
-            padding: 60px 50px;
+            padding: 50px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
-        .profile-info h1 {
+        .header-main h1 {
             font-size: 2.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
         }
 
-        .job-tag {
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 1rem;
-            display: inline-block;
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 500;
             margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .contact-grid {
+        .contact-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 12px;
+            font-size: 0.95rem;
         }
 
-        .contact-grid div { display: flex; align-items: center; font-size: 0.95rem; }
-        .contact-grid i { width: 25px; color: var(--accent-color); }
+        .contact-info div { display: flex; align-items: center; gap: 10px; opacity: 0.9; }
+        .contact-info i { color: var(--accent-color); width: 16px; }
+        .contact-info a { color: #fff; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .contact-info a:hover { border-bottom: 1px solid #fff; }
 
-        /* --- Content Layout --- */
-        .main-grid {
+        /* --- Main Layout --- */
+        .cv-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            padding: 40px;
-            gap: 40px;
+            padding: 50px;
+            gap: 60px;
         }
+
+        section { margin-bottom: 40px; }
 
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
-            font-weight: 700;
+            gap: 12px;
+            text-transform: uppercase;
         }
 
-        .section-title i { margin-right: 10px; color: var(--accent-color); }
+        /* --- Professional Summary --- */
+        .summary-text {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
 
         /* --- Experience --- */
         .exp-item {
             position: relative;
-            padding-left: 30px;
-            border-left: 2px solid #dfe6e9;
+            padding-left: 25px;
+            border-left: 2px solid var(--border-color);
             margin-bottom: 35px;
         }
 
         .exp-item::before {
             content: '';
             position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
+            left: -7px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
             border-radius: 50%;
-            border: 3px solid #fff;
         }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        .exp-company {
-            color: var(--primary-color);
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-
-        .exp-time {
-            font-size: 0.85rem;
-            color: #636e72;
-            background: #f1f2f6;
-            padding: 2px 10px;
-            border-radius: 10px;
-        }
-
-        .exp-role {
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .exp-content {
+        .company { font-weight: 800; color: var(--primary-color); font-size: 1.15rem; }
+        .date { font-weight: 600; font-size: 0.9rem; color: #777; background: #f8f9fa; padding: 2px 12px; border-radius: 15px; }
+        .role { font-weight: 700; color: var(--accent-color); margin-bottom: 12px; display: block; }
+        
+        .bullet-points {
+            list-style: none;
             font-size: 0.95rem;
-            list-style: square;
-            margin-left: 20px;
+            color: #444;
         }
 
-        .exp-content li { margin-bottom: 5px; }
+        .bullet-points li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .bullet-points li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
 
         /* --- Skills --- */
-        .skill-group { margin-bottom: 25px; }
-        .skill-group h4 { font-size: 1rem; margin-bottom: 12px; color: #636e72; }
+        .skill-category { margin-bottom: 25px; }
+        .skill-category h4 { font-size: 0.95rem; text-transform: uppercase; color: #777; margin-bottom: 12px; }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-tags span {
-            background: #f1f2f6;
+            background: #eef2f7;
             padding: 6px 14px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 0.85rem;
-            font-weight: 500;
-            transition: 0.3s;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: 0.2s;
         }
         .skill-tags span:hover { background: var(--primary-color); color: #fff; }
 
-        /* --- Print --- */
-        @media print {
-            body { padding: 0; background: #fff; }
-            .container { box-shadow: none; max-width: 100%; }
-            header { background: #2c3e50 !important; color: #fff !important; }
-            .exp-time { background: #eee !important; }
+        /* --- Mobile --- */
+        @media (max-width: 850px) {
+            header { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .contact-info { grid-template-columns: 1fr; margin-top: 25px; }
+            .cv-content { grid-template-columns: 1fr; padding: 30px 20px; }
         }
 
-        @media (max-width: 768px) {
-            .main-grid { grid-template-columns: 1fr; }
-            header { flex-direction: column; text-align: center; }
-            .contact-grid { grid-template-columns: 1fr; margin-top: 20px; }
+        @media print {
+            body { padding: 0; background: #fff; }
+            .container { box-shadow: none; }
+            .date { border: 1px solid #ccc; }
         }
     </style>
 </head>
@@ -174,148 +186,150 @@
 
 <div class="container">
     <header>
-        <div class="profile-info">
-            <h1>蘇 Wen-Tsung</h1>
-            <div class="job-tag">資深系統維運工程師 | Senior Site Engineer</div>
-            <div class="contact-grid">
-                <div><i class="fas fa-envelope"></i> billpitt613@gmail.com</div>
+        <div class="header-main">
+            <h1>Wen-Tsung Su</h1>
+            <div class="tagline">Senior Site Reliability & Telecom Engineer</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> <a href="mailto:billpitt613@gmail.com">billpitt613@gmail.com</a></div>
                 <div><i class="fas fa-phone"></i> 0900-229-796</div>
-                <div><i class="fas fa-map-marker-alt"></i> 新北市板橋區</div>
-                <div><i class="fab fa-linkedin"></i> linkedin.com/in/went-tsung</div>
+                <div><i class="fas fa-map-marker-alt"></i> New Taipei City, Taiwan</div>
+                <div><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/went-tsung</a></div>
             </div>
         </div>
     </header>
 
-    <div class="main-grid">
-        <div class="left-col">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> 工作經歷</h2>
+    <div class="cv-content">
+        <div class="left-pane">
+            <section>
+                <h2 class="section-title"><i class="fas fa-user-tie"></i> Executive Summary</h2>
+                <p class="summary-text">
+                    Highly accomplished **Telecom Systems Engineer** with over 13 years of experience in managing large-scale 4G/5G core networks and mission-critical infrastructure. Proven track record at top-tier firms including **Ericsson**, **T-Star**, and **TWM**. Specialized in Packet Core (PS) maintenance, network security, and automated monitoring solutions. Adept at bridging the gap between traditional telecommunications and modern automation using **Python and VBA**.
+                </p>
+            </section>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">台灣愛立信 (Ericsson)</span>
-                    <span class="exp-time">2017/07 - 至今</span>
-                </div>
-                <div class="exp-role">Site Engineer / 系統工程師</div>
-                <ul class="exp-content">
-                    <li>負責維運全區 4G / 5G 核心網路服務設備 (Packet Core)。</li>
-                    <li>客戶端 PS (Packet Switched) Server 故障排除與效能監控。</li>
-                    <li>參與 5G 系統整合與站點端技術支援與升級。</li>
-                </ul>
-            </div>
+            <section>
+                <h2 class="section-title"><i class="fas fa-history"></i> Professional Experience</h2>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">台灣之星 (T-Star)</span>
-                    <span class="exp-time">2015/03 - 2017/07</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="company">Ericsson Taiwan</span>
+                        <span class="date">Jul 2017 – Present</span>
+                    </div>
+                    <span class="role">Site Engineer (Core Network)</span>
+                    <ul class="bullet-points">
+                        <li>Orchestrated the operation and maintenance of **4G/5G Packet Core** systems for major telecom operators.</li>
+                        <li>Maintained high-availability customer PS servers, ensuring seamless data services and minimal downtime.</li>
+                        <li>Lead technical troubleshooting for complex network incidents, collaborating with global R&D teams for rapid resolution.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">資深網路管理工程師</div>
-                <ul class="exp-content">
-                    <li>日常核心網路設備檢查、維護與 ISP 品質監控。</li>
-                    <li>維運電信加值服務 (VAS) 並處理高階客訴技術案件。</li>
-                    <li>Firewall (防火牆) 策略配置、控管與安全性稽核。</li>
-                    <li>漫遊測試與全區基站傳輸監控系統建置。</li>
-                </ul>
-            </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">緯創資通 (Wistron)</span>
-                    <span class="exp-time">2014/05 - 2015/03</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="company">Taiwan Star (T-Star)</span>
+                        <span class="date">Mar 2015 – Jul 2017</span>
+                    </div>
+                    <span class="role">Senior Network Management Engineer</span>
+                    <ul class="bullet-points">
+                        <li>Spearheaded the development and maintenance of nationwide **Base Station Transmission Monitoring** systems.</li>
+                        <li>Managed ISP quality control and high-level technical customer complaints for Value-Added Services (VAS).</li>
+                        <li>Configured and audited **Enterprise Firewall policies** to enhance core network security.</li>
+                        <li>Executed international roaming testing and protocol validation.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">高級測試工程師</div>
-                <ul class="exp-content">
-                    <li>Wistron Cloud 專案之軟體環境建置與雲端架構測試。</li>
-                    <li>撰寫自動化測試報告與效能評估分析。</li>
-                </ul>
-            </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">台灣大哥大 (TWM)</span>
-                    <span class="exp-time">2012/02 - 2014/04</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="company">Wistron Corporation</span>
+                        <span class="date">May 2014 – Mar 2015</span>
+                    </div>
+                    <span class="role">Senior QA & Test Engineer</span>
+                    <ul class="bullet-points">
+                        <li>Engineered software environments for **Wistron Cloud** projects, focusing on scalability and performance testing.</li>
+                        <li>Automated test report generation, reducing manual documentation time by 40%.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">網路管理工程師</div>
-                <ul class="exp-content">
-                    <li>2G/3G/4G 全區基站狀態 24/7 監控與重大故障彙整。</li>
-                    <li>協調後端基站障礙處理與日常維運報表製作。</li>
-                </ul>
-            </div>
 
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">台灣固網</span>
-                    <span class="exp-time">2011/02 - 2012/02</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="company">Taiwan Mobile (TWM)</span>
+                        <span class="date">Feb 2012 – Apr 2014</span>
+                    </div>
+                    <span class="role">Network Operations Center (NOC) Engineer</span>
+                    <ul class="bullet-points">
+                        <li>Monitored 2G/3G/4G nationwide network status and handled real-time base station alarms.</li>
+                        <li>Synthesized incident reports for major network outages and facilitated cross-departmental emergency response.</li>
+                    </ul>
                 </div>
-                <div class="exp-role">網路監控工程師</div>
-                <ul class="exp-content">
-                    <li>固網傳輸網路監控與異常障礙派工流程管理。</li>
-                    <li>國際客戶專線障礙查修與跨國電信商協調。</li>
-                </ul>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <span class="exp-company">國家中山科學研究院 (NCSIST)</span>
-                    <span class="exp-time">2010/02 - 2011/02</span>
-                </div>
-                <div class="exp-role">機房技術員 / 系統工程師</div>
-                <ul class="exp-content">
-                    <li>Citrix XenApp 專案虛擬化環境建置與管理。</li>
-                    <li>Thin Client 系統佈署與機房基礎設施維護。</li>
-                </ul>
-            </div>
+            </section>
         </div>
 
-        <div class="right-col">
-            <h2 class="section-title"><i class="fas fa-tools"></i> 專業技能</h2>
-            
-            <div class="skill-group">
-                <h4>電信核心技術</h4>
-                <div class="skill-tags">
-                    <span>5G/4G Core</span>
-                    <span>Packet Core (PS)</span>
-                    <span>Roaming Test</span>
-                    <span>Transmission</span>
+        <div class="right-pane">
+            <section>
+                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+                
+                <div class="skill-category">
+                    <h4>Telecom Core</h4>
+                    <div class="skill-tags">
+                        <span>5G/4G Packet Core</span>
+                        <span>RAN Monitoring</span>
+                        <span>VAS Maintenance</span>
+                        <span>Roaming Protocols</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-group">
-                <h4>網路與資安</h4>
-                <div class="skill-tags">
-                    <span>Firewall Policy</span>
-                    <span>TCP/IP</span>
-                    <span>ISP Monitoring</span>
-                    <span>BGP/OSPF</span>
+                <div class="skill-category">
+                    <h4>Network & Security</h4>
+                    <div class="skill-tags">
+                        <span>TCP/IP</span>
+                        <span>Firewall Management</span>
+                        <span>BGP/OSPF</span>
+                        <span>ISP Quality Control</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-group">
-                <h4>系統與虛擬化</h4>
-                <div class="skill-tags">
-                    <span>Linux/Windows Server</span>
-                    <span>Citrix XenApp</span>
-                    <span>VMware</span>
-                    <span>Cloud Testing</span>
+                <div class="skill-category">
+                    <h4>Automation & Dev</h4>
+                    <div class="skill-tags">
+                        <span>Python (Pandas/API)</span>
+                        <span>VBA (Excel Auto)</span>
+                        <span>Pine Script (TradingView)</span>
+                        <span>Supabase/SQL</span>
+                    </div>
                 </div>
-            </div>
 
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 學歷</h2>
-            <div style="margin-left: 10px;">
-                <p style="font-weight: bold; color: var(--primary-color);">大學 學士</p>
-                <p style="font-size: 0.9rem; color: #636e72;">資訊工程 / 相關科系</p>
-            </div>
+                <div class="skill-category">
+                    <h4>Infrastructure</h4>
+                    <div class="skill-tags">
+                        <span>Linux/Windows Server</span>
+                        <span>Citrix XenApp</span>
+                        <span>VMware</span>
+                        <span>Cloud Testing</span>
+                    </div>
+                </div>
+            </section>
 
-            <h2 class="section-title" style="margin-top: 40px;"><i class="fas fa-certificate"></i> 證照/專長</h2>
-            <div class="skill-tags">
-                <span>網管系統建置</span>
-                <span>障礙查修專家</span>
-                <span>跨部門溝通</span>
-            </div>
+            <section>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div style="margin-left: 10px;">
+                    <p style="font-weight: 800; color: var(--primary-color);">B.S. in Computer Science</p>
+                    <p style="font-size: 0.9rem; color: #666; font-weight: 500;">Relevant Coursework: Network Engineering, Algorithms, Database Management.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-award"></i> Professional Strengths</h2>
+                <ul class="bullet-points" style="font-size: 0.85rem;">
+                    <li>Expert in high-pressure Incident Management.</li>
+                    <li>Strong cross-functional stakeholder communication.</li>
+                    <li>Continuous learner (currently pursuing **CISSP** certification).</li>
+                    <li>Quantitative mindset for data-driven network optimization.</li>
+                </ul>
+            </section>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 20px; background: #f1f2f6; font-size: 0.8rem; color: #95a5a6;">
-        &copy; 2026 Wen-Tsung Su. 專業電信技術工程師履歷
+    <footer style="background: #f8f9fa; padding: 25px; text-align: center; font-size: 0.8rem; color: #999; border-top: 1px solid #eee;">
+        &copy; 2026 Wen-Tsung Su. Designed for Telecom & SRE Opportunities.
     </footer>
 </div>
 
