@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #00274d;    /* Ericsson Blue / Corporate Navy */
-            --accent-color: #006ce0;     /* Tech Blue */
+            --primary-color: #00274d;
+            --accent-color: #006ce0;
             --text-color: #333;
             --bg-color: #f0f2f5;
             --card-bg: #ffffff;
@@ -16,170 +16,34 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 40px 10px; }
+        .container { max-width: 1050px; margin: 0 auto; background: var(--card-bg); box-shadow: 0 4px 25px rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; }
 
-        body {
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 40px 10px;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        /* --- Header --- */
-        header {
-            background: var(--primary-color);
-            color: #fff;
-            padding: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-main h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 5px;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-
-        .contact-info div { display: flex; align-items: center; gap: 10px; opacity: 0.9; }
+        header { background: var(--primary-color); color: #fff; padding: 50px; display: flex; justify-content: space-between; align-items: center; }
+        .header-main h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 5px; }
+        .tagline { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;}
+        .contact-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; font-size: 0.95rem; }
         .contact-info i { color: var(--accent-color); width: 16px; }
-        .contact-info a { color: #fff; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .contact-info a:hover { border-bottom: 1px solid #fff; }
 
-        /* --- Main Layout --- */
-        .cv-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            padding: 50px;
-            gap: 60px;
-        }
-
+        .cv-content { display: grid; grid-template-columns: 2fr 1fr; padding: 50px; gap: 60px; }
         section { margin-bottom: 40px; }
+        .section-title { font-size: 1.3rem; font-weight: 700; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 8px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
 
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-transform: uppercase;
-        }
-
-        /* --- Professional Summary --- */
-        .summary-text {
-            font-size: 1.05rem;
-            color: #555;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* --- Experience --- */
-        .exp-item {
-            position: relative;
-            padding-left: 25px;
-            border-left: 2px solid var(--border-color);
-            margin-bottom: 35px;
-        }
-
-        .exp-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent-color);
-            border-radius: 50%;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-
+        .exp-item { position: relative; padding-left: 25px; border-left: 2px solid var(--border-color); margin-bottom: 35px; }
+        .exp-item::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; background: var(--accent-color); border-radius: 50%; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
         .company { font-weight: 800; color: var(--primary-color); font-size: 1.15rem; }
-        .date { font-weight: 600; font-size: 0.9rem; color: #777; background: #f8f9fa; padding: 2px 12px; border-radius: 15px; }
+        .date { font-weight: 600; font-size: 0.85rem; color: #555; background: #f1f3f5; padding: 2px 12px; border-radius: 15px; }
         .role { font-weight: 700; color: var(--accent-color); margin-bottom: 12px; display: block; }
         
-        .bullet-points {
-            list-style: none;
-            font-size: 0.95rem;
-            color: #444;
-        }
+        .bullet-points { list-style: none; font-size: 0.95rem; color: #444; }
+        .bullet-points li { margin-bottom: 6px; position: relative; padding-left: 18px; }
+        .bullet-points li::before { content: "▹"; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; }
 
-        .bullet-points li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 18px;
-        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .skill-tags span { background: #eef2f7; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; color: var(--primary-color); }
 
-        .bullet-points li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* --- Skills --- */
-        .skill-category { margin-bottom: 25px; }
-        .skill-category h4 { font-size: 0.95rem; text-transform: uppercase; color: #777; margin-bottom: 12px; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tags span {
-            background: #eef2f7;
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            transition: 0.2s;
-        }
-        .skill-tags span:hover { background: var(--primary-color); color: #fff; }
-
-        /* --- Mobile --- */
-        @media (max-width: 850px) {
-            header { flex-direction: column; text-align: center; padding: 40px 20px; }
-            .contact-info { grid-template-columns: 1fr; margin-top: 25px; }
-            .cv-content { grid-template-columns: 1fr; padding: 30px 20px; }
-        }
-
-        @media print {
-            body { padding: 0; background: #fff; }
-            .container { box-shadow: none; }
-            .date { border: 1px solid #ccc; }
-        }
+        @media (max-width: 850px) { .cv-content { grid-template-columns: 1fr; padding: 30px 20px; } header { flex-direction: column; text-align: center; } .contact-info { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -188,12 +52,12 @@
     <header>
         <div class="header-main">
             <h1>Wen-Tsung Su</h1>
-            <div class="tagline">Senior Site Reliability & Telecom Engineer</div>
+            <div class="tagline">Senior Systems & Telecom Engineer | M.S. in Information Management</div>
             <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> <a href="mailto:billpitt613@gmail.com">billpitt613@gmail.com</a></div>
+                <div><i class="fas fa-envelope"></i> billpitt613@gmail.com</div>
                 <div><i class="fas fa-phone"></i> 0900-229-796</div>
                 <div><i class="fas fa-map-marker-alt"></i> New Taipei City, Taiwan</div>
-                <div><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/went-tsung</a></div>
+                <div><i class="fab fa-linkedin"></i> linkedin.com/in/went-tsung</div>
             </div>
         </div>
     </header>
@@ -201,9 +65,9 @@
     <div class="cv-content">
         <div class="left-pane">
             <section>
-                <h2 class="section-title"><i class="fas fa-user-tie"></i> Executive Summary</h2>
-                <p class="summary-text">
-                    Highly accomplished **Telecom Systems Engineer** with over 13 years of experience in managing large-scale 4G/5G core networks and mission-critical infrastructure. Proven track record at top-tier firms including **Ericsson**, **T-Star**, and **TWM**. Specialized in Packet Core (PS) maintenance, network security, and automated monitoring solutions. Adept at bridging the gap between traditional telecommunications and modern automation using **Python and VBA**.
+                <h2 class="section-title"><i class="fas fa-user-graduate"></i> Executive Summary</h2>
+                <p style="font-size: 1rem; color: #555; text-align: justify;">
+                    Highly skilled **Information Management Master (M.S.)** and Telecom Systems Professional with over 13 years of experience. Expert in managing mission-critical infrastructure at **Ericsson** and **Taiwan Mobile Group**. Specialized in 4G/5G Packet Core維運, transmission monitoring, and network security. Passionate about integrating **Python/VBA automation** with traditional telecom operations to enhance system reliability and efficiency.
                 </p>
             </section>
 
@@ -215,11 +79,11 @@
                         <span class="company">Ericsson Taiwan</span>
                         <span class="date">Jul 2017 – Present</span>
                     </div>
-                    <span class="role">Site Engineer (Core Network)</span>
+                    <span class="role">Site Engineer (Core Network & PS)</span>
                     <ul class="bullet-points">
-                        <li>Orchestrated the operation and maintenance of **4G/5G Packet Core** systems for major telecom operators.</li>
-                        <li>Maintained high-availability customer PS servers, ensuring seamless data services and minimal downtime.</li>
-                        <li>Lead technical troubleshooting for complex network incidents, collaborating with global R&D teams for rapid resolution.</li>
+                        <li>Directed the end-to-end maintenance of **4G/5G Packet Core (PS)** infrastructure for Tier-1 operators.</li>
+                        <li>Spearheaded high-priority incident response and complex troubleshooting, achieving carrier-grade SLA requirements.</li>
+                        <li>Supported customer PS server health and system upgrades during major technology transitions.</li>
                     </ul>
                 </div>
 
@@ -230,10 +94,8 @@
                     </div>
                     <span class="role">Senior Network Management Engineer</span>
                     <ul class="bullet-points">
-                        <li>Spearheaded the development and maintenance of nationwide **Base Station Transmission Monitoring** systems.</li>
-                        <li>Managed ISP quality control and high-level technical customer complaints for Value-Added Services (VAS).</li>
-                        <li>Configured and audited **Enterprise Firewall policies** to enhance core network security.</li>
-                        <li>Executed international roaming testing and protocol validation.</li>
+                        <li>Engineered nationwide **Base Station Transmission Monitoring** systems to visualize real-time network topology health.</li>
+                        <li>Managed enterprise-level VAS and firewall policy configurations to ensure network integrity and security.</li>
                     </ul>
                 </div>
 
@@ -244,20 +106,20 @@
                     </div>
                     <span class="role">Senior QA & Test Engineer</span>
                     <ul class="bullet-points">
-                        <li>Engineered software environments for **Wistron Cloud** projects, focusing on scalability and performance testing.</li>
-                        <li>Automated test report generation, reducing manual documentation time by 40%.</li>
+                        <li>Configured and validated cloud software environments for specialized **Wistron Cloud** projects.</li>
                     </ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-header">
-                        <span class="company">Taiwan Mobile (TWM)</span>
-                        <span class="date">Feb 2012 – Apr 2014</span>
+                        <span class="company">Taiwan Mobile Group (TWM / TFN)</span>
+                        <span class="date">Feb 2011 – Apr 2014</span>
                     </div>
-                    <span class="role">Network Operations Center (NOC) Engineer</span>
+                    <span class="role">Integrated Network & Transmission Engineer</span>
                     <ul class="bullet-points">
-                        <li>Monitored 2G/3G/4G nationwide network status and handled real-time base station alarms.</li>
-                        <li>Synthesized incident reports for major network outages and facilitated cross-departmental emergency response.</li>
+                        <li>**Core Monitoring:** Oversaw 2G/3G/4G RAN and Fixed-line Transmission systems for nationwide stability.</li>
+                        <li>**Global Support:** Handled international private line (IPLC) provisioning and fault isolation for global clients.</li>
+                        <li>**Automation:** Leveraged data insights to automate daily outage analysis and reporting.</li>
                     </ul>
                 </div>
             </section>
@@ -265,71 +127,52 @@
 
         <div class="right-pane">
             <section>
-                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
-                
-                <div class="skill-category">
-                    <h4>Telecom Core</h4>
-                    <div class="skill-tags">
-                        <span>5G/4G Packet Core</span>
-                        <span>RAN Monitoring</span>
-                        <span>VAS Maintenance</span>
-                        <span>Roaming Protocols</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Network & Security</h4>
-                    <div class="skill-tags">
-                        <span>TCP/IP</span>
-                        <span>Firewall Management</span>
-                        <span>BGP/OSPF</span>
-                        <span>ISP Quality Control</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Automation & Dev</h4>
-                    <div class="skill-tags">
-                        <span>Python (Pandas/API)</span>
-                        <span>VBA (Excel Auto)</span>
-                        <span>Pine Script (TradingView)</span>
-                        <span>Supabase/SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Infrastructure</h4>
-                    <div class="skill-tags">
-                        <span>Linux/Windows Server</span>
-                        <span>Citrix XenApp</span>
-                        <span>VMware</span>
-                        <span>Cloud Testing</span>
-                    </div>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div style="margin-bottom: 10px;">
+                    <p style="font-weight: 800; color: var(--primary-color); font-size: 1.1rem;">Master of Science (M.S.)</p>
+                    <p style="font-weight: 700; color: var(--accent-color);">Information Management</p>
+                    <p style="font-size: 0.95rem; color: #444; font-weight: 600;">Shih Hsin University</p>
                 </div>
             </section>
 
             <section>
-                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div style="margin-left: 10px;">
-                    <p style="font-weight: 800; color: var(--primary-color);">B.S. in Computer Science</p>
-                    <p style="font-size: 0.9rem; color: #666; font-weight: 500;">Relevant Coursework: Network Engineering, Algorithms, Database Management.</p>
+                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Skills & Expertise</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="font-weight: 700; font-size: 0.9rem; color: #777;">AUTOMATION & DEV</p>
+                    <div class="skill-tags">
+                        <span>Python (Pandas)</span> <span>VBA Automation</span> <span>Pine Script</span> <span>FastAPI/SQL</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <p style="font-weight: 700; font-size: 0.9rem; color: #777;">TELECOM CORE</p>
+                    <div class="skill-tags">
+                        <span>5G/4G Core</span> <span>PS Maintenance</span> <span>NOC Ops</span> <span>Transmission</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <p style="font-weight: 700; font-size: 0.9rem; color: #777;">SYSTEMS & CLOUD</p>
+                    <div class="skill-tags">
+                        <span>Linux Server</span> <span>VMware</span> <span>Citrix XenApp</span> <span>Cloud Testing</span>
+                    </div>
                 </div>
             </section>
 
             <section>
                 <h2 class="section-title"><i class="fas fa-award"></i> Professional Strengths</h2>
                 <ul class="bullet-points" style="font-size: 0.85rem;">
-                    <li>Expert in high-pressure Incident Management.</li>
-                    <li>Strong cross-functional stakeholder communication.</li>
-                    <li>Continuous learner (currently pursuing **CISSP** certification).</li>
-                    <li>Quantitative mindset for data-driven network optimization.</li>
+                    <li>**Strategic Problem Solver:** Advanced analytical skills from M.S. in IM.</li>
+                    <li>**Automation Pioneer:** Bridging legacy systems with modern code.</li>
+                    <li>**Telecom Expert:** 13+ years in multi-operator environments.</li>
                 </ul>
             </section>
         </div>
     </div>
 
-    <footer style="background: #f8f9fa; padding: 25px; text-align: center; font-size: 0.8rem; color: #999; border-top: 1px solid #eee;">
-        &copy; 2026 Wen-Tsung Su. Designed for Telecom & SRE Opportunities.
+    <footer style="text-align: center; padding: 20px; color: #bbb; font-size: 0.75rem;">
+        &copy; 2026 Wen-Tsung Su. Master of Information Management | Senior Telecom Professional.
     </footer>
 </div>
 
